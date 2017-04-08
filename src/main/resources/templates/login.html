@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Login to Application</title>
+    <meta th:replace="fragments/header :: header">
+</head>
+<body>
+
+    <div class="section hero">
+        <div class="container">
+            <div class="row">
+                <h4 class="hero-heading">Welcome to Reactive Big Data Application. Select your avatar!</h4>
+
+                <div th:if="${param.error}">
+                    <h5>Unknown user!<h5>
+                </div>
+                <div th:if="${param.logout}">
+                    <h5>You have been logged out.</h5>
+                </div>
+                <form th:action="@{/login}" method="post">
+                    <div><h5> User Name: <input type="text" name="username"/> </h5></div>
+                    <input type="hidden" name="password" value="password"/>
+                    <div><input type="submit" class="button-primary" value="Sign In"/></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
