@@ -7,19 +7,20 @@
     <meta th:replace="fragments/header :: header">
 </head>
 <body>
-
-    <div class="section hero">
-        <div class="container">
+        <div class="container title">
             <div class="row">
-                <h4 class="hero-heading">Visualization Dashboard</h4>
-
-                <h5 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h5>
-                <form th:action="@{/logout}" method="post">
-                    <input type="submit" value="Sign Out"/>
-                </form>
+                <div class="eight columns">
+                    <h5>Visualization dashboard</h5>
+                </div>
+                <div class="two columns" align="right">
+                    <h5 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h5>
+                </div>
+                <div class="two columns">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Sign Out"/>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-
 </body>
 </html>
