@@ -1,3 +1,6 @@
 ## Reactive Big Data
 
-### TODO: Write correct content here!
+### Notices
+
+- Actuator base url: ```/application```
+- 

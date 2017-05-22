@@ -33,7 +33,7 @@ public class VisualizationControllerTest {
         client.get().uri("api/visualizations")
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(List.class).value().isEqualTo(emptyList());
+                .expectBody(List.class).isEqualTo(emptyList());
     }
 
     @Test
@@ -44,6 +44,6 @@ public class VisualizationControllerTest {
         client.get().uri("api/visualizations/1")
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(Visualization.class).value().isEqualTo(vis);
+                .expectBody(Visualization.class).isEqualTo(vis);
     }
 }
