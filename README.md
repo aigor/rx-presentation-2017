@@ -18,10 +18,10 @@ This application simulates process of query execution in Big Data product.
 
 ![Application snapshot](docs/images/application-snapshot.png "Application snapshot")
 
-It uses WebSocket for client-server communication & [RxJava](https://github.com/ReactiveX/RxJava/tree/1.x) library for asynchronous workflow.
+It uses WebSocket for client-server communication and [RxJava](https://github.com/ReactiveX/RxJava/tree/1.x) library for asynchronous workflow.
 It is based on [Spring Boot 2](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Release-Notes) & [SpringFramework 5](https://spring.io/blog/2016/09/22/new-in-spring-5-functional-web-framework) (both are not GA yet). 
 Application uses [WebFlux](https://spring.io/blog/2017/02/23/spring-framework-5-0-m5-update) framework for REST & WebSocket. UI components uses [Google Charts](https://developers.google.com/chart/). 
-UI design is based on CSS framework [Skeleton](http://getskeleton.com/)
+UI design is based on CSS framework [Skeleton](http://getskeleton.com/).
 
 ---
 
