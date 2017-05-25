@@ -8,7 +8,7 @@ This is a demo application for presentation given on [JEEConf-2017](http://jeeco
 
 [Presentation lives here (on SlideShare)](https://www.slideshare.net/secret/4NFC0dun3dJ4Zn)
 
-![Slides](docs/images/presentation-title.png "Slides")
+[![Slides](docs/images/presentation-title.png "Slides")](https://www.slideshare.net/secret/4NFC0dun3dJ4Zn)
 
 ---
 
