@@ -5,20 +5,40 @@
 <head>
     <title>Visualization Dashboard</title>
     <meta th:replace="fragments/header :: header">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="js/vis.js"></script>
 </head>
 <body>
+        <!-- Header section -->
         <div class="container title">
             <div class="row">
                 <div class="eight columns">
-                    <h5>Visualization dashboard</h5>
+                    <h5>Dashboard</h5>
                 </div>
-                <div class="two columns" align="right">
+                <!-- <div class="two columns" align="right">
                     <h5 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h5>
-                </div>
-                <div class="two columns">
+                </div> -->
+                <div class="four columns" align="right">
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" value="Sign Out"/>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- -->
+        <div class="container">
+            <div class="row">
+                <div id="app_status">
+                    <p>Status: Initial request...</p>
+                </div>
+            </div>
+        </div>
+        <!-- Data section -->
+        <div class="container">
+            <div class="row">
+                <div id="chart_div">
                 </div>
             </div>
         </div>
