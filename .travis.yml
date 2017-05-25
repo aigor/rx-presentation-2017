@@ -1,7 +1,3 @@
 language: java
 jdk:
   - oraclejdk8
-deploy:
-  provider: heroku
-  app: reactive-big-data
-  api_key: $HEROKU_KEY
