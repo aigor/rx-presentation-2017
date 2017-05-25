@@ -2,9 +2,9 @@
 
 Small application that demonstrate Reactive approaches for Big Data visualization.
 
-This is a demo application for presentation given on [JEEConf-2017](http://jeeconf.com). Short description of the presentation is [here](http://jeeconf.com/program/rxjava-as-key-component-in-a-mature-big-data-product/).
+# This is a demo application for presentation given on [JEEConf-2017](http://jeeconf.com). Short description of the presentation is [here](http://jeeconf.com/program/rxjava-as-key-component-in-a-mature-big-data-product/).
 
----
+[![Build Status](https://travis-ci.org/aigor/rx-presentation-2017.svg?branch=master)](https://travis-ci.org/aigor/rx-presentation-2017)
 
 [Presentation lives here (on SlideShare)](https://www.slideshare.net/secret/4NFC0dun3dJ4Zn)
 
