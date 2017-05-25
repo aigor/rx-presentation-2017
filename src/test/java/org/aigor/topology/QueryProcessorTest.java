@@ -2,7 +2,6 @@ package org.aigor.topology;
 
 import lombok.Data;
 import lombok.Getter;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
