@@ -16,9 +16,6 @@
                 <div class="eight columns">
                     <h5>Dashboard</h5>
                 </div>
-                <!-- <div class="two columns" align="right">
-                    <h5 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h5>
-                </div> -->
                 <div class="four columns" align="right">
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" th:value="'Sign out (' + ${#httpServletRequest.remoteUser} + ')'"/>
