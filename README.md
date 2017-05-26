@@ -40,3 +40,9 @@ After successful start application will be accessible on url: ```http://localhos
 #### Application Notices
 
 - Spring Boot Actuator base url: ```/application```
+
+---
+
+#### Recommended articles
+
+- [Reactive programming vs. Reactive systems (by Jonas Bonér & Viktor Klang)](https://www.oreilly.com/ideas/reactive-programming-vs-reactive-systems)
