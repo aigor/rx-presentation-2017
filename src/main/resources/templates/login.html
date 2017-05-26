@@ -11,7 +11,7 @@
     <div class="section hero">
         <div class="container">
             <div class="row">
-                <h4 class="hero-heading">Welcome to Reactive Big Data Application. Select your avatar!</h4>
+                <h4 class="hero-heading">Welcome to Reactive Big Data Demo!</h4>
 
                 <div th:if="${param.error}">
                     <h5>Unknown user!<h5>
@@ -20,8 +20,8 @@
                     <h5>You have been logged out.</h5>
                 </div>
                 <form th:action="@{/login}" method="post">
-                    <div><h5> User Name: <input type="text" name="username"/> </h5></div>
-                    <input type="hidden" name="password" value="password"/>
+                    <div><h5>Your name: <input type="text" name="username"/></h5></div>
+                    <input type="hidden" name="password" value="Glory to Ukraine"/>
                     <div><input type="submit" class="button-primary" value="Sign In"/></div>
                 </form>
             </div>

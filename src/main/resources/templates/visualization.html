@@ -21,7 +21,7 @@
                 </div> -->
                 <div class="four columns" align="right">
                     <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Sign Out"/>
+                        <input type="submit" th:value="'Sign out (' + ${#httpServletRequest.remoteUser} + ')'"/>
                     </form>
                 </div>
             </div>
