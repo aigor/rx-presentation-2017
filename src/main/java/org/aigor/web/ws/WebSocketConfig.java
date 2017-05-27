@@ -13,7 +13,7 @@ import org.springframework.web.reactive.socket.server.RequestUpgradeStrategy;
 import org.springframework.web.reactive.socket.server.WebSocketService;
 import org.springframework.web.reactive.socket.server.support.HandshakeWebSocketService;
 import org.springframework.web.reactive.socket.server.support.WebSocketHandlerAdapter;
-import org.springframework.web.reactive.socket.server.upgrade.JettyRequestUpgradeStrategy;
+import org.springframework.web.reactive.socket.server.upgrade.TomcatRequestUpgradeStrategy;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,16 +24,11 @@ public class WebSocketConfig {
     @Bean
     public HandlerMapping webSocketMapping() {
         Map<String, WebSocketHandler> map = new HashMap<>();
-        map.put("/vis", new VisWebSocketHandler());
+        map.put("/ws/vis", new VisWebSocketHandler());
 
         SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
         mapping.setUrlMap(map);
         return mapping;
-    }
-
-    @Bean
-    public DispatcherHandler webHandler() {
-        return new DispatcherHandler();
     }
 
     @Bean
@@ -42,11 +37,21 @@ public class WebSocketConfig {
     }
 
     @Bean
-    public WebSocketService webSocketService() {
-        return new HandshakeWebSocketService(getUpgradeStrategy());
+    public WebSocketHandlerAdapter handlerAdapter(WebSocketService wsService) {
+        return new WebSocketHandlerAdapter(wsService);
     }
 
-    protected RequestUpgradeStrategy getUpgradeStrategy() {
-        return new JettyRequestUpgradeStrategy();
+//    @Bean
+//    public WebSocketService webSocketService() {
+//        return new HandshakeWebSocketService(getUpgradeStrategy());
+//    }
+
+    private RequestUpgradeStrategy getUpgradeStrategy() {
+        return new TomcatRequestUpgradeStrategy();
+    }
+
+    @Bean
+    public DispatcherHandler webHandler() {
+        return new DispatcherHandler();
     }
 }

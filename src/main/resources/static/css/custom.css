@@ -97,6 +97,9 @@
     .title {
         padding: 1rem 0 1rem;
     }
+    .control-section {
+        padding: 2rem 0;
+    }
 }
 
 /* Bigger than 750 */
@@ -130,6 +133,9 @@
     .categories {
         padding: 15rem 0 8rem;
     }
+    .control-section {
+        padding: 3rem 0;
+    }
 }
 
 /* Bigger than 1000 */
@@ -150,5 +156,8 @@
     .phone + .phone {
         top: -14rem;
         max-height: 570px;
+    }
+    .control-section {
+        padding: 4rem 0;
     }
 }
