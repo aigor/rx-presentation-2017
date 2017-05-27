@@ -35,18 +35,39 @@ function drawChart() {
     ];
 
     // Supporting functions
-    function progressing_data(data, vis_progress) {
-        var data_part = data.map(function(e) { return e.slice(); });
-        var max_size = data_part.length * data_part[0].length;
+    function data_size(data){
+        return (data.length - 1) * (data[0].length - 1)
+    }
 
-        for(var i = 1; i < data_part.length; i++) {
-            var line = data_part[i];
-            for(var j = 1; j < line.length; j++) {
-                // Update value
-                if (((i + 5) * (j + 3) % (i * j)) > (vis_progress / 100.0 * max_size)) {
-                    line[j] = 0;
-                }
-            }
+    function range(start, count) {
+        return Array.apply(0, new Array(count))
+            .map(function (element, index) {
+                return index + start;
+            });
+    }
+
+    function shuffle(a) {
+        var j, x, i;
+        for (i = a.length; i; i--) {
+            j = Math.floor(Math.random() * i);
+            x = a[i - 1];
+            a[i - 1] = a[j];
+            a[j] = x;
+        }
+    }
+
+    function progressing_data(data, vis_progress, appearance_order) {
+        var data_part = data.map(function(e) { return e.slice(); });
+        var max_size = data_size(data_part);
+        var row_size = data_part.length - 1;
+
+        var vis_position = Math.round(vis_progress / 100.0 * max_size);
+
+        for(var i = vis_position; i < appearance_order.length; i++) {
+            var elem = appearance_order[i];
+            var k = Math.floor(elem / row_size) + 1;
+            var j = (elem % row_size) + 1;
+            data_part[j][k] = 0;
         }
         return data_part;
     }
@@ -68,6 +89,12 @@ function drawChart() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    function generateOrder(data){
+        var ord = range(0, data_size(data));
+        shuffle(ord);
+        return ord;
+    }
+
     // Chart control
     var cancel_btn = document.getElementById('cancel_vis');
     var reload_btn = document.getElementById('reload_vis');
@@ -77,6 +104,7 @@ function drawChart() {
 
     var progress_enabled = true;
     var vis_progress = 0;
+    var appearance_order = [];
 
     cancel_btn.onclick = function (e) {
         progress_enabled = false;
@@ -92,7 +120,7 @@ function drawChart() {
         if (progress_enabled) {
             var step = randomInt(0, 10);
             vis_progress = (vis_progress + step < 100) ? vis_progress + step : 100;
-            vis_data(progressing_data(data, vis_progress));
+            vis_data(progressing_data(data, vis_progress, appearance_order));
             status(vis_progress + "% of data is loaded");
             if (vis_progress < 100) {
                 setTimeout(progress, progress_delay + randomInt(10, progress_delay));
@@ -104,9 +132,10 @@ function drawChart() {
 
     var initiate_progress = function() {
         vis_progress = 0;
+        appearance_order = generateOrder(data);
         status("Preparing query for visualization...");
         setTimeout(progress, query_prepare_delay);
-        vis_data(progressing_data(data, 0));
+        vis_data(progressing_data(data, 0, appearance_order));
     };
 
     // Initial load
