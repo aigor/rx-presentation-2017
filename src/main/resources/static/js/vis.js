@@ -138,6 +138,6 @@ function drawChart() {
         vis_data(progressing_data(data, 0, appearance_order));
     };
 
-    // Initial load
+    // Initial load - on page load
     initiate_progress();
 }
