@@ -4,6 +4,7 @@
 package org.aigor.web.ws;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.web.reactive.socket.WebSocketMessage;
 import org.springframework.web.reactive.socket.client.StandardWebSocketClient;
@@ -24,6 +25,7 @@ public class WebSocketClientTest {
         client = new StandardWebSocketClient();
     }
 
+    @Ignore
     @Test
     public void shouldCommunicateWithWs() throws Exception {
         int count = 1;

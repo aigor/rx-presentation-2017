@@ -26,9 +26,9 @@ function drawChart() {
         ['2009', 1030, 340, 350, 215],
         ['2010', 1000, 500, 800, 247],
         ['2011', 1170, 460, 252, 225],
-        ['2012', 960, 1120, 300, 245],
-        ['2013', 1030, 340, 352, 645],
-        ['2014', 1000, 400, 200, 1145],
+        ['2012', 1960, 1820, 300, 245],
+        ['2013', 1230, 1340, 46, 645],
+        ['2014', 900, 1400, 76, 1145],
         ['2015', 1170, 460, 250, 255],
         ['2016', 960, 1120, 800, 275],
         ['2017', 200, 110, 330, 60]
@@ -99,8 +99,8 @@ function drawChart() {
     var cancel_btn = document.getElementById('cancel_vis');
     var reload_btn = document.getElementById('reload_vis');
 
-    var query_prepare_delay = 100;
-    var progress_delay = 200;
+    var query_prepare_delay = 3000;
+    var progress_delay = 400;
 
     var progress_enabled = true;
     var vis_progress = 0;
@@ -121,11 +121,11 @@ function drawChart() {
             var step = randomInt(0, 10);
             vis_progress = (vis_progress + step < 100) ? vis_progress + step : 100;
             vis_data(progressing_data(data, vis_progress, appearance_order));
-            status(vis_progress + "% of data is loaded");
+            status(vis_progress + "% of data processed");
             if (vis_progress < 100) {
                 setTimeout(progress, progress_delay + randomInt(10, progress_delay));
             } else {
-                status("Done!");
+                status("Visualization built");
             }
         }
     };
