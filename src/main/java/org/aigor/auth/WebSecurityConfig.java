@@ -1,33 +1,27 @@
 package org.aigor.auth;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.config.web.server.HttpSecurity;
+import org.springframework.security.web.server.SecurityWebFilterChain;
 
 @Configuration
-@EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableWebFluxSecurity
+public class WebSecurityConfig {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/css/**").permitAll()
-                .antMatchers("/js/**").permitAll()
-                .antMatchers("/application/**").permitAll()
-                .antMatchers("/ws/**").permitAll() // TODO: Use some auth here!
-                .anyRequest().authenticated().and()
-                .formLogin().loginPage("/login").permitAll().and()
-                .logout().permitAll().and();
-    }
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth,
-                                PartyAuthenticationProvider provider) throws Exception {
-        auth
-                .authenticationProvider(provider);
+    @Bean
+    SecurityWebFilterChain configure(HttpSecurity http) throws Exception {
+        return http
+//                .authorizeExchange()
+//                .pathMatchers("/css/**").permitAll()
+//                .pathMatchers("/js/**").permitAll()
+//                .pathMatchers("/application/**").permitAll()
+//                .pathMatchers("/ws/**").permitAll() // TODO: Use some auth here!
+//                .pathMatchers("/**").authenticated().and()
+//                .formLogin().loginPage("/login").and()
+//                .logout().logoutUrl("/login")
+//        .and()
+        .build();
     }
 }

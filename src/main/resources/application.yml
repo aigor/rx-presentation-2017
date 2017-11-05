@@ -1,0 +1,22 @@
+# Server configuration
+server:
+  port: 8080
+
+spring:
+  main:
+    web-application-type: "REACTIVE"
+  webflux:
+    static-path-pattern: "/**"
+  resources:
+    static-locations: "classpath:/static/"
+  metrics:
+    simple:
+      enabled: true
+  thymeleaf:
+    template-resolver-order: 1
+    check-template: true
+    reactive.max-chunk-size: 8192
+
+
+# Uncomment in order to log all the requests served by Thymeleaf, DataBuffers generated, sizes, etc.
+logging.level.org.thymeleaf.spring5.SpringWebFluxTemplateEngine: TRACE

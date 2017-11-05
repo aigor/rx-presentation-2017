@@ -5,4 +5,4 @@ ${AnsiColor.BLUE}|    // _ \/ _` |/ __| __| |/ _ \ \ / / _ \ | ___ \ |/ _` | | |
 ${AnsiColor.BLUE}| |\ \  __/ (_| | (__| |_| |  __/\ V /  __/ | |_/ / | (_| | | |/ / (_| | || (_| |
 ${AnsiColor.BLUE}\_| \_\___|\__,_|\___|\__|_|\___| \_/ \___| \____/|_|\__, | |___/ \__,_|\__\__,_|
 ${AnsiColor.BLUE}                                                      __/ |
-${AnsiColor.BLUE}                                                     |___/ ${AnsiColor.YELLOW} For JEEConf 2017
+${AnsiColor.BLUE}                                                     |___/ ${AnsiColor.YELLOW} For JavaDay 2017

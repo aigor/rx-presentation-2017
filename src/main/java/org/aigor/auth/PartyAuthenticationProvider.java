@@ -5,22 +5,23 @@ package org.aigor.auth;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 
 @Component
 @Qualifier("partyAccess")
 @Slf4j
-public class PartyAuthenticationProvider implements AuthenticationProvider {
+public class PartyAuthenticationProvider implements ReactiveAuthenticationManager {
     private static final String MOTTO = "Glory to Ukraine";
 
     @Override
-    public Authentication authenticate(Authentication authentication)
+    public Mono<Authentication> authenticate(Authentication authentication)
             throws AuthenticationException {
 
         String name = authentication.getName();
@@ -28,14 +29,9 @@ public class PartyAuthenticationProvider implements AuthenticationProvider {
 
         if (MOTTO.equals(password)) {
             log.info("User '{}' joined the party!", name);
-            return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
+            return Mono.just(new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>()));
         } else {
-            return null;
+            return Mono.empty();
         }
-    }
-
-    @Override
-    public boolean supports(Class<?> authentication) {
-        return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }
